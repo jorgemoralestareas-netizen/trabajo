@@ -16,16 +16,11 @@ jobs:
         with:
           flutter-version: '3.22.0'
 
-      - name: Get dependencies
-        run: flutter pub get
-        working-directory: trabajo
+      - run: flutter pub get
 
-      - name: Build APK
-        run: flutter build apk --release
-        working-directory: trabajo
+      - run: flutter build apk --release
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: apk
-          path: trabajo/build/app/outputs/flutter-apk/*.apk
+          path: build/app/outputs/flutter-apk/*.apk
